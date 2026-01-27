@@ -37,7 +37,11 @@ section[data-testid="stSidebar"] {
 """, unsafe_allow_html=True)
 
 # ---------------- BANCO DE DADOS ----------------
-conn = sqlite3.connect("dados.db", check_same_thread=False)
+import os
+
+DB_PATH = os.path.join(os.getcwd(), "dados.db")
+conn = sqlite3.connect(DB_PATH, check_same_thread=False)
+
 cursor = conn.cursor()
 
 cursor.execute("""
